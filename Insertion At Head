@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+class Node
+{
+    public:
+    int data;
+    Node* next; //A pointer 'next' is created which will be pointing at NUll.
+    
+    //Constructor.
+    Node(int val)
+    {
+        this -> data = val;
+        this -> next = NULL;
+    }
+};
+//Now we will create another Node to insert it before 'node1'.
+
+    void insertAtHead(Node* &head, int d)
+    {
+        Node* temp = new Node(d); // New node is Created as name 'temp'.
+        temp -> next = head; // the next of temp will point toward the head. 
+        head = temp; //  new temp will be the head & will work as starting of the Linked List.
+    }
+// Till now a new Node is Created. Now, we will Print the Data inside the nodes.
+
+void Print(Node* &head)
+{
+    Node* temp = head; // A new pointer 'temp' is created which is pointing at head.
+    while(temp != NULL) // Run the loop till temp != NULL.
+    {
+        cout<<temp-> data<<" "; // Print the data at temp.
+        temp = temp-> next; // moving the pointer 'temp' to the next node.
+    }
+    
+}
+int main()
+{
+    Node* node1 = new Node(10);
+    
+    // cout<<node1-> data<<endl; =  For printing the Value at node1.
+    // To print a data we need to create a Constructor.
+    
+    insertAtHead(node1, 20);
+    insertAtHead(node1, 30);
+    insertAtHead(node1, 40);
+    insertAtHead(node1, 50);
+    
+    Print(node1);
+    return 0;
+}
