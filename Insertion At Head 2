@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class Node
+{
+    public:
+    int DATA;
+    Node*NEXT;
+    Node*PREV;
+    Node(int VAL)
+    {
+        this -> DATA = VAL;
+        this -> NEXT = NULL;
+        this -> PREV = NULL;
+    }
+};
+void InsertAtHead(Node*&head, int d)
+{
+    Node*temp = new Node(d);
+    temp -> NEXT = head;
+    head -> PREV = temp;
+    head = temp;
+}
+void print(Node*&head)
+{
+    Node*temp = head;
+    while(temp != NULL)
+    {
+        cout<<temp -> DATA<<" ";
+        temp = temp -> NEXT;
+    }
+}
+int main()
+{
+    Node*node1 = new Node(50);
+    //cout<<node1 -> DATA;
+    InsertAtHead(node1, 40);
+    InsertAtHead(node1, 30);
+    InsertAtHead(node1, 20);
+    InsertAtHead(node1, 10);
+    print(node1);
+    return 0;
+}
